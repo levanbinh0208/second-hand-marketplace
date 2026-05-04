@@ -2,14 +2,14 @@ package com.marketplace.service;
 
 import com.marketplace.domain.Payment;
 import com.marketplace.mapper.PaymentMapper;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class PaymentService {
 
-    private final PaymentMapper paymentMapper;
+    @Autowired
+    private PaymentMapper paymentMapper;
 
     public Payment getByTransactionId(Long transactionId) {
         return paymentMapper.findByTransactionId(transactionId);

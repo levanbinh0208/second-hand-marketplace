@@ -2,17 +2,17 @@ package com.marketplace.service;
 
 import com.marketplace.domain.Listing;
 import com.marketplace.mapper.ListingMapper;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class ListingService {
 
-    private final ListingMapper listingMapper;
+    @Autowired
+    private  ListingMapper listingMapper;
 
     public Listing getById(Long id) {
         return listingMapper.findById(id);

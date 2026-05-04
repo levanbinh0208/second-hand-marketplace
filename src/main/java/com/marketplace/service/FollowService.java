@@ -2,16 +2,15 @@ package com.marketplace.service;
 
 import com.marketplace.domain.Follow;
 import com.marketplace.mapper.FollowMapper;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class FollowService {
-
-    private final FollowMapper followMapper;
+    @Autowired
+    private FollowMapper followMapper;
 
     public List<Follow> followers(Long userId) {
         return followMapper.findFollowers(userId);

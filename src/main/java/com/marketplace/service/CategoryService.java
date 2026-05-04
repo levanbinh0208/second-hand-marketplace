@@ -2,16 +2,16 @@ package com.marketplace.service;
 
 import com.marketplace.domain.Category;
 import com.marketplace.mapper.CategoryMapper;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class CategoryService {
 
-    private final CategoryMapper categoryMapper;
+    @Autowired
+    private CategoryMapper categoryMapper;
 
     public List<Category> getAll() {
         return categoryMapper.findAll();

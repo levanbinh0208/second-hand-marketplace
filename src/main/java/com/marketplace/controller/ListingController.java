@@ -2,7 +2,7 @@ package com.marketplace.controller;
 
 import com.marketplace.domain.Listing;
 import com.marketplace.service.ListingService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -10,10 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/listings")
-@RequiredArgsConstructor
 public class ListingController {
 
-    private final ListingService listingService;
+    @Autowired
+    private ListingService listingService;
 
     @GetMapping
     public List<Listing> getAll() {

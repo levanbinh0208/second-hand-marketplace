@@ -2,16 +2,16 @@ package com.marketplace.service;
 
 import com.marketplace.domain.Favorite;
 import com.marketplace.mapper.FavoriteMapper;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class FavoriteService {
 
-    private final FavoriteMapper favoriteMapper;
+    @Autowired
+    private FavoriteMapper favoriteMapper;
 
     public List<Favorite> getByUser(Long userId) {
         return favoriteMapper.findByUserId(userId);

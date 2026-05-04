@@ -2,17 +2,17 @@ package com.marketplace.controller;
 
 import com.marketplace.domain.Favorite;
 import com.marketplace.service.FavoriteService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/favorites")
-@RequiredArgsConstructor
 public class FavoriteController {
 
-    private final FavoriteService favoriteService;
+    @Autowired
+    private FavoriteService favoriteService;
 
     @GetMapping("/{userId}")
     public List<Favorite> get(@PathVariable Long userId) {

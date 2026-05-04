@@ -2,17 +2,17 @@ package com.marketplace.controller;
 
 import com.marketplace.domain.Transaction;
 import com.marketplace.service.TransactionService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/transactions")
-@RequiredArgsConstructor
-public class TransactionController {
 
-    private final TransactionService transactionService;
+public class TransactionController {
+    @Autowired
+    private  TransactionService transactionService;
 
     @GetMapping("/buyer/{buyerId}")
     public List<Transaction> buyer(@PathVariable Long buyerId) {

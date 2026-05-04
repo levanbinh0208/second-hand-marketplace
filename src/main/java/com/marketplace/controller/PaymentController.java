@@ -2,15 +2,15 @@ package com.marketplace.controller;
 
 import com.marketplace.domain.Payment;
 import com.marketplace.service.PaymentService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/payments")
-@RequiredArgsConstructor
 public class PaymentController {
 
-    private final PaymentService paymentService;
+    @Autowired
+    private PaymentService paymentService;
 
     @GetMapping("/{transactionId}")
     public Payment get(@PathVariable Long transactionId) {

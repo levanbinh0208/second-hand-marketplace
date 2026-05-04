@@ -2,17 +2,17 @@ package com.marketplace.controller;
 
 import com.marketplace.domain.Rating;
 import com.marketplace.service.RatingService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/ratings")
-@RequiredArgsConstructor
 public class RatingController {
 
-    private final RatingService ratingService;
+    @Autowired
+    private RatingService ratingService;
 
     @GetMapping("/{userId}")
     public List<Rating> getRatings(@PathVariable Long userId) {

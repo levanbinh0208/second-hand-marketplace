@@ -2,17 +2,17 @@ package com.marketplace.controller;
 
 import com.marketplace.domain.Message;
 import com.marketplace.service.MessageService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/messages")
-@RequiredArgsConstructor
-public class MessageController {
 
-    private final MessageService messageService;
+public class MessageController {
+    @Autowired
+    private MessageService messageService;
 
     @GetMapping("/conversation")
     public List<Message> conversation(

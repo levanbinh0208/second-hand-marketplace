@@ -2,16 +2,16 @@ package com.marketplace.service;
 
 import com.marketplace.domain.Transaction;
 import com.marketplace.mapper.TransactionMapper;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class TransactionService {
 
-    private final TransactionMapper transactionMapper;
+    @Autowired
+    private  TransactionMapper transactionMapper;
 
     public Transaction getById(Long id) {
         return transactionMapper.findById(id);

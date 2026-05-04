@@ -2,17 +2,15 @@ package com.marketplace.controller;
 
 import com.marketplace.domain.Follow;
 import com.marketplace.service.FollowService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/follows")
-@RequiredArgsConstructor
 public class FollowController {
-
-    private final FollowService followService;
+    @Autowired
+    private FollowService followService;
 
     @GetMapping("/followers/{userId}")
     public List<Follow> followers(@PathVariable Long userId) {
